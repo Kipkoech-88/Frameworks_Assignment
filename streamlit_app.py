@@ -201,7 +201,7 @@ def main():
         col1, col2 = st.columns(2)
         
         with col1:
-            st.subheader("📈 Quick Insights")
+            st.subheader(" Quick Insights")
             
             yearly_data = analysis_data['yearly_data']
             if not yearly_data.empty and year_range:
@@ -212,13 +212,13 @@ def main():
                 
                 if not yearly_filtered.empty:
                     peak_year = yearly_filtered.loc[yearly_filtered['publication_count'].idxmax()]
-                    st.write(f"📊 **Peak Publication Year:** {peak_year['year']} ({peak_year['publication_count']:,} papers)")
+                    st.write(f" **Peak Publication Year:** {peak_year['year']} ({peak_year['publication_count']:,} papers)")
                     
                     total_papers = yearly_filtered['publication_count'].sum()
-                    st.write(f"📚 **Total Papers in Range:** {total_papers:,}")
+                    st.write(f" **Total Papers in Range:** {total_papers:,}")
                     
                     growth_rate = ((yearly_filtered['publication_count'].iloc[-1] - yearly_filtered['publication_count'].iloc[0]) / yearly_filtered['publication_count'].iloc[0] * 100) if len(yearly_filtered) > 1 else 0
-                    st.write(f"📈 **Growth Rate:** {growth_rate:.1f}%")
+                    st.write(f" **Growth Rate:** {growth_rate:.1f}%")
         
         with col2:
             st.subheader("🔍 Data Quality")
@@ -227,13 +227,13 @@ def main():
             complete_columns = (df_filtered.isnull().sum() == 0).sum()
             completeness = complete_columns / total_columns * 100
             
-            st.write(f"📋 **Total Columns:** {total_columns}")
-            st.write(f"✅ **Complete Columns:** {complete_columns}")
-            st.write(f"💯 **Data Completeness:** {completeness:.1f}%")
+            st.write(f" **Total Columns:** {total_columns}")
+            st.write(f" **Complete Columns:** {complete_columns}")
+            st.write(f" **Data Completeness:** {completeness:.1f}%")
             
             # Memory usage
             memory_mb = df_filtered.memory_usage(deep=True).sum() / 1024**2
-            st.write(f"💾 **Memory Usage:** {memory_mb:.2f} MB")
+            st.write(f" **Memory Usage:** {memory_mb:.2f} MB")
     
     # Tab 2: Publication Trends
     with tab2:
@@ -275,7 +275,7 @@ def main():
             st.plotly_chart(fig, use_container_width=True)
             
             # Show data table
-            with st.expander("📊 View Data Table"):
+            with st.expander(" View Data Table"):
                 st.dataframe(yearly_filtered, use_container_width=True)
         else:
             st.warning("No yearly publication data available")
@@ -331,7 +331,7 @@ def main():
             st.plotly_chart(fig, use_container_width=True)
             
             # Show data table
-            with st.expander("📊 View Journal Data"):
+            with st.expander(" View Journal Data"):
                 st.dataframe(top_journals, use_container_width=True)
         else:
             st.warning("No journal data available")
@@ -455,7 +455,7 @@ def main():
             # Download filtered data as CSV
             csv = display_df.to_csv(index=False)
             st.download_button(
-                label="📥 Download Filtered Data as CSV",
+                label=" Download Filtered Data as CSV",
                 data=csv,
                 file_name=f"cord19_filtered_data_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
                 mime="text/csv"
@@ -466,7 +466,7 @@ def main():
             if not analysis_data['yearly_data'].empty:
                 yearly_csv = analysis_data['yearly_data'].to_csv(index=False)
                 st.download_button(
-                    label="📊 Download Analysis Results",
+                    label=" Download Analysis Results",
                     data=yearly_csv,
                     file_name=f"cord19_yearly_analysis_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
                     mime="text/csv"
@@ -477,29 +477,29 @@ def main():
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.info("🔬 **Data Source:** CORD-19 Dataset from Kaggle")
+        st.info(" **Data Source:** CORD-19 Dataset from Kaggle")
     
     with col2:
-        st.info("🛠️ **Built with:** Python, Streamlit, Pandas, Plotly")
+        st.info(" **Built with:** Python, Streamlit, Pandas, Plotly")
     
     with col3:
-        st.info("📅 **Last Updated:** " + datetime.now().strftime("%Y-%m-%d"))
+        st.info(" **Last Updated:** " + datetime.now().strftime("%Y-%m-%d"))
     
     # Sidebar additional info
     with st.sidebar:
         st.markdown("---")
-        st.subheader("ℹ️ About")
+        st.subheader("ℹ About")
         st.markdown("""
         This application provides an interactive exploration of the CORD-19 dataset,
         which contains research papers about COVID-19 and related coronavirus research.
         
         **Features:**
-        - 📊 Interactive visualizations
-        - 🔍 Data filtering and search
-        - 📈 Publication trend analysis
-        - 🏛️ Top journals identification
-        - ☁️ Word frequency analysis
-        - 📥 Data download capabilities
+        -  Interactive visualizations
+        -  Data filtering and search
+        -  Publication trend analysis
+        -  Top journals identification
+        -  Word frequency analysis
+        -  Data download capabilities
         """)
         
         st.markdown("---")

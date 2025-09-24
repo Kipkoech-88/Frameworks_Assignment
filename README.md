@@ -264,7 +264,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 - **Author**: Dennis Tonui
-- **GitHub**: [@yourusername](https://github.com/yourusername)
+- **GitHub**: [@Kipkoech-88](https://github.com/Kipkoech-88)
+- **LinkedIn**: [ Profile](https://www.linkedin.com/in/dennistonui/)
 
 ---
 
