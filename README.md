@@ -24,9 +24,7 @@ Frameworks_Assignment/
 │   └── data_exploration.ipynb # Exploratory data analysis
 └── results/                  # Analysis results
     ├── findings_report.md    # Key findings summary
-    ├── yearly_publications.csv
-    ├── top_journals.csv
-    └── word_frequency.csv
+
 ```
 
 ## 🚀 Quick Start
